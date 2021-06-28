@@ -23,7 +23,7 @@
           登录
         </a-button>
         <a-button style="margin-left: 10px" @click="resetForm('loginFrom')">
-          注册
+          <a href="https://mallapi.duyiedu.com/login/#/register" target="_blank">注册</a>
         </a-button>
       </a-form-model-item>
     </a-form-model>
@@ -71,7 +71,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           user.login(this.loginFrom).then((res) => {
-            console.log(res);
+            // console.log(res);
             this.$store.commit('initUserInfo', res);
             setCookie(res);
             this.$router.push({ name: 'Home' });
@@ -80,7 +80,7 @@ export default {
           });
           return true;
         }
-        console.log('error submit!!');
+        // console.log('error submit!!');
         return false;
       });
     },
